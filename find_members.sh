@@ -1,5 +1,5 @@
 #!/bin/ksh
-# This should be connected to my working folder now.
+# Testing write access
 
 # This will be the directory where the full web-pages will be kept
 DATA=${HOME}/Documents/Low-Carb-Daily-Member-List/data
