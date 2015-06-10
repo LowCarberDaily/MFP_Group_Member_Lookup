@@ -1,6 +1,6 @@
 #!/bin/ksh
 
-DATA=/home/kevinb/Documents/Low-Carb-Daily-Member-List/data
+DATA=${HOME}/Documents/Low-Carb-Daily-Member-List/data
 BASE="http://community.myfitnesspal.com/en/group/members/394-low-carber-daily-forum-the-lcd-group/"
 
 # Move into the data directory
