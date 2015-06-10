@@ -1,5 +1,4 @@
 #!/bin/ksh
-# Testing write access
 
 # This will be the directory where the full web-pages will be kept
 DATA=${HOME}/Documents/Low-Carb-Daily-Member-List/data
