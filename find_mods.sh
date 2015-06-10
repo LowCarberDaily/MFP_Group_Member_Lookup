@@ -1,5 +1,6 @@
 #!/bin/ksh
 
+# This will be the directory where the full web-pages will be kept
 DATA=${HOME}/Documents/Low-Carb-Daily-Member-List/data
 BASE="http://community.myfitnesspal.com/en/group/members/394-low-carber-daily-forum-the-lcd-group/"
 
@@ -21,7 +22,8 @@ done
 
 #
 # This sections looks for the named members.
-# It looks for everyone on the command line.
+# It looks for every name listed on the command line.
+# I could probably use $* as I think MFP doesn't allow spaces in usernames
 #
 max=544
 min=1
