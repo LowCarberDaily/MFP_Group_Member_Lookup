@@ -8,8 +8,8 @@ MAX=544;
 usage() {
 	echo "Usage:"
 	echo "	Fetch new files:	"$0" --fetch [start] [end]"
+	echo "	Pages by member amount:	"$0" --count number_of_members"
 	echo "	Search for members:	"$0" [name] [name] [name]" 
-	echo "	Pages by member amount:	"$0" number_of_members"
 }
 
 count_pages() {
@@ -69,14 +69,14 @@ if [ 0 -eq $# ]; then
 	usage
 else
 	case $1 in
-		--help)
+		--help|-h)
 			usage;
 			;;
-		--count)
+		--count|-c)
 			shift;
 			count_pages $@;
 			;;
-		--fetch)
+		--fetch|-f)
 			shift;
 			fetch_pages $@;
 			;;
