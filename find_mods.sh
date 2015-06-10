@@ -1,6 +1,10 @@
 #!/bin/ksh
 
+DATA=/home/kevinb/Documents/Low-Carb-Daily-Member-List/data
 BASE="http://community.myfitnesspal.com/en/group/members/394-low-carber-daily-forum-the-lcd-group/"
+
+# Move into the data directory
+cd $DATA
 
 #
 # This first block grabs all the member pages
@@ -17,10 +21,11 @@ done
 
 #
 # This sections looks for the named members.
+# It looks for everyone on the command line.
 #
 max=544
 min=1
-for NAME in FIT_Goat loridarling quux
+for NAME in $@
 do
 	i=$max
 	while (( i >= $min ))
