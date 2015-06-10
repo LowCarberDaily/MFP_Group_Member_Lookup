@@ -3,7 +3,7 @@
 # This will be the directory where the full web-pages will be kept
 DATA=${HOME}/Documents/Low-Carb-Daily-Member-List/data
 BASE="http://community.myfitnesspal.com/en/group/members/394-low-carber-daily-forum-the-lcd-group/"
-MAX=544;
+MAX=545;
 
 usage() {
 	echo "Usage:"
