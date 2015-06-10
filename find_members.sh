@@ -12,16 +12,17 @@ usage() {
 	echo "	Search for members:	"$0" [name] [name] [name]" 
 }
 
+# There are 30 people per page on MFP. This will take a number of members
+# in the group and return how many pages you should fetch.
 count_pages() {
+	perpage=30;
 	if [ $1 -gt 0 ]; then
-		dc -e "[la1+sa]sb $1 30/sa$1 30%0!=blap"
+		dc -e "[la1+sa]sb${1} ${perpage}/sa${1} ${perpage}%0!=blap"
 	fi
 }
 
+# This will download all the member pages from MFP
 fetch_pages() {
-		#
-		# This first block grabs all the member pages
-		#
 		if [ $# -gt 0 ]; then
 			min=$1;
 		else
@@ -41,12 +42,10 @@ fetch_pages() {
 		done
 }
 
+# This function looks for the named members. It looks for every name listed
+# on the command line. I could probably use $* as I think MFP doesn't allow
+# spaces in usernames, but I would rather be safe than sorry.
 search_members() {
-	#
-	# This sections looks for the named members.
-	# It looks for every name listed on the command line.
-	# I could probably use $* as I think MFP doesn't allow spaces in usernames
-	#
 	max=${MAX}
 	min=1
 	for NAME in $@
@@ -61,9 +60,9 @@ search_members() {
 	done
 }
 
-# Move into the data directory
+# Move into the data directory while we work. A lot of files are created and
+# used in this process.
 cd $DATA
-
 
 if [ 0 -eq $# ]; then
 	usage
