@@ -32,7 +32,7 @@ else
 		do
 			URL="${BASE}p${PAGE}?filter=members"
 			((PAGE++))
-			echo ftp $URL
+			ftp $URL
 		done
 	else
 		#
