@@ -6,11 +6,11 @@ DATA="${HOME}/Documents/Low-Carb-Daily-Member-List/data"
 # The number of pages we're working with, set by running --count
 PAGES="max_pages"
 # This is the URL of the group on MFP
-GROUP_URL="394-low-carber-daily-forum-the-lcd-group/"
+GROUP_URL="394-low-carber-daily-forum-the-lcd-group"
 
 # These shouldn't need to be changed.
 WEBSITE="http://community.myfitnesspal.com/en/group/members/"
-BASE="${WEBSITE}${GROUP_URL}"
+BASE="${WEBSITE}${GROUP_URL}/"
 LEADING='"Card Card-Member"><a title="'
 
 # Make sure the max pages file is set and is a number gt 0.
@@ -77,14 +77,18 @@ search_members() {
 	for NAME in $@
 	do
 		i=${MAX};
+		found=0;
 		while (( i >= ${min} ))
 		do
 			file="p${i}?filter=members";
 			grep -q "${LEADING}${NAME}" ${file} &&
-				i=${min} && 
+				i=${min} && found=1 &&
 				echo "${NAME} is on page ${BASE}${file}";
 			((i--))
 		done
+		if [ 0 -eq ${found} ]; then
+			echo "${NAME} doesn't appear to be a member."
+		fi
 	done
 }
 
