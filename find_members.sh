@@ -40,8 +40,8 @@ count_pages() {
 	perpage=30;
 	if [ $# -gt 0 ]; then
 		if [ $1 -gt 0 ]; then
-			count=`dc -e "[la1+sa]sb${1} ${perpage}/sa${1}\
-				${perpage}%0!=blap"`
+			count=`dc -e "[1+]sa${1} ${perpage}/${1}\
+				${perpage}%0!=ap"`
 			echo ${count} > ${DATA}/${PAGES}
 			echo "${count} pages stored"
 		fi
