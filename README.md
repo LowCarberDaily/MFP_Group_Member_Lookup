@@ -39,3 +39,11 @@ $ find_members.sh Jim1567 SueSlim Jimmy56
 
 The program will print the URL of the webpage where you can find the member(s)
 listed. If a person can't be found, it will tell you they don't exist.
+
+The script searches backwards, from the most recently joined members to the
+oldest members.  It quits as soon as a hit is found.  It works with just the
+start of user names.  For example, you can enter FIT instead of FIT_Goat and
+it will work. But, if there is another member like FIT215 who joined after
+FIT_Goat, it will give you their page instead of the one you want. So, it is
+best practice to put as much of the start of the username as you know (or all
+of the username). Nothing stops you from taking shortcuts though.
